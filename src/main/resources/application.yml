@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: CIneLog
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cinelog
+    username: your_username
+    password: your_password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+app:
+  jwt:
+    secret: replace-with-a-very-long-secure-secret-key-for-production
+    expiration-ms: 86400000
