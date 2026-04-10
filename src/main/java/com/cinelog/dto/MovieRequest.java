@@ -18,6 +18,8 @@ public record MovieRequest(
         @NotBlank String country,
         @NotBlank String language,
         @NotBlank @Size(max = 4000) String synopsis,
-        @NotBlank String posterImageUrl
+        @NotBlank String posterImageUrl,
+        String backdropImageUrl,
+        List<@NotBlank String> imageUrls
 ) {
 }

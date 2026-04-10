@@ -14,6 +14,8 @@ public record MovieDetailResponse(
         String language,
         String synopsis,
         String posterImageUrl,
+        String backdropImageUrl,
+        List<String> imageUrls,
         Double averageRating
 ) {
 }

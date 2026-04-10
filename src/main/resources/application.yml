@@ -3,8 +3,8 @@ spring:
     name: CIneLog
   datasource:
     url: jdbc:postgresql://localhost:5432/cinelog
-    username: your_username
-    password: your_password
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,5 +20,5 @@ server:
 
 app:
   jwt:
-    secret: replace-with-a-very-long-secure-secret-key-for-production
+    secret: ${JWT_SECRET}
     expiration-ms: 86400000

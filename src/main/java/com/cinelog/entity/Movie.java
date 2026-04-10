@@ -58,4 +58,11 @@ public class Movie {
     private String synopsis;
 
     private String posterImageUrl;
+
+    private String backdropImageUrl;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "movie_image_urls", joinColumns = @JoinColumn(name = "movie_id"))
+    @Column(name = "image_url", nullable = false)
+    private List<String> imageUrls = new ArrayList<>();
 }

@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -107,6 +108,12 @@ public class MovieService {
         movie.setLanguage(request.language().trim());
         movie.setSynopsis(request.synopsis().trim());
         movie.setPosterImageUrl(request.posterImageUrl().trim());
+        movie.setBackdropImageUrl(request.backdropImageUrl() == null || request.backdropImageUrl().isBlank()
+                ? null
+                : request.backdropImageUrl().trim());
+        movie.setImageUrls(request.imageUrls() == null
+                ? new ArrayList<>()
+                : request.imageUrls().stream().map(String::trim).toList());
     }
 
     private MovieSummaryResponse toMovieSummaryResponse(Movie movie) {
@@ -132,6 +139,8 @@ public class MovieService {
                 movie.getLanguage(),
                 movie.getSynopsis(),
                 movie.getPosterImageUrl(),
+                movie.getBackdropImageUrl(),
+                movie.getImageUrls(),
                 getRoundedAverageRating(movie.getId())
         );
     }
