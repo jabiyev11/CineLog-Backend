@@ -5,6 +5,17 @@ spring:
     url: jdbc:postgresql://localhost:5432/cinelog
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   jpa:
     hibernate:
       ddl-auto: update
@@ -22,3 +33,13 @@ app:
   jwt:
     secret: ${JWT_SECRET}
     expiration-ms: 86400000
+  otp:
+    expiration-minutes: 10
+    resend-cooldown-seconds: 60
+    max-attempts: 5
+  google:
+    client-id: ${GOOGLE_CLIENT_ID:}
+    jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+    issuer: https://accounts.google.com
+  mail:
+    from: ${MAIL_FROM:${MAIL_USERNAME:}}

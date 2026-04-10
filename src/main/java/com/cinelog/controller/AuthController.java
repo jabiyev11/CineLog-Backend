@@ -1,8 +1,12 @@
 package com.cinelog.controller;
 
 import com.cinelog.dto.AuthResponse;
+import com.cinelog.dto.GoogleAuthRequest;
 import com.cinelog.dto.LoginRequest;
+import com.cinelog.dto.MessageResponse;
+import com.cinelog.dto.OtpVerificationRequest;
 import com.cinelog.dto.RegisterRequest;
+import com.cinelog.dto.ResendOtpRequest;
 import com.cinelog.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,12 +26,27 @@ public class AuthController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public AuthResponse register(@Valid @RequestBody RegisterRequest request) {
+    public MessageResponse register(@Valid @RequestBody RegisterRequest request) {
         return authService.register(request);
     }
 
     @PostMapping("/login")
     public AuthResponse login(@Valid @RequestBody LoginRequest request) {
         return authService.login(request);
+    }
+
+    @PostMapping("/verify-otp")
+    public MessageResponse verifyOtp(@Valid @RequestBody OtpVerificationRequest request) {
+        return authService.verifyOtp(request);
+    }
+
+    @PostMapping("/resend-otp")
+    public MessageResponse resendOtp(@Valid @RequestBody ResendOtpRequest request) {
+        return authService.resendOtp(request);
+    }
+
+    @PostMapping("/google")
+    public AuthResponse google(@Valid @RequestBody GoogleAuthRequest request) {
+        return authService.googleSignIn(request);
     }
 }

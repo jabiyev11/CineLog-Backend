@@ -7,6 +7,7 @@ import com.cinelog.entity.User;
 import com.cinelog.entity.WatchLog;
 import com.cinelog.exception.ResourceNotFoundException;
 import com.cinelog.repository.RatingRepository;
+import com.cinelog.repository.EmailVerificationOtpRepository;
 import com.cinelog.repository.ReviewLikeRepository;
 import com.cinelog.repository.ReviewRepository;
 import com.cinelog.repository.UserRepository;
@@ -29,6 +30,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final WatchLogRepository watchLogRepository;
     private final RatingRepository ratingRepository;
+    private final EmailVerificationOtpRepository emailVerificationOtpRepository;
     private final ReviewRepository reviewRepository;
     private final ReviewLikeRepository reviewLikeRepository;
     private final WatchlistRepository watchlistRepository;
@@ -65,6 +67,7 @@ public class UserService {
         User user = currentUserService.getCurrentUser();
         reviewLikeRepository.deleteByUserId(user.getId());
         reviewLikeRepository.deleteByReviewUserId(user.getId());
+        emailVerificationOtpRepository.deleteByUserId(user.getId());
         ratingRepository.deleteByUserId(user.getId());
         reviewRepository.deleteByUserId(user.getId());
         watchlistRepository.deleteByUserId(user.getId());

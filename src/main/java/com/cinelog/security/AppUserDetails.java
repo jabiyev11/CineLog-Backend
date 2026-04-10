@@ -18,6 +18,7 @@ public class AppUserDetails implements UserDetails {
     private final String email;
     private final String password;
     private final Role role;
+    private final boolean emailVerified;
 
     public AppUserDetails(User user) {
         this.id = user.getId();
@@ -25,6 +26,7 @@ public class AppUserDetails implements UserDetails {
         this.email = user.getEmail();
         this.password = user.getPasswordHash();
         this.role = user.getRole();
+        this.emailVerified = user.isEmailVerified();
     }
 
     @Override
@@ -40,5 +42,10 @@ public class AppUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return email;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return emailVerified;
     }
 }
