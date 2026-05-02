@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineLog verification</title>
+  <style>
+    @media screen and (max-width: 620px) {
+      .container { width: 100% !important; }
+      .panel { padding: 28px 22px !important; }
+      .otp { font-size: 32px !important; letter-spacing: 0 !important; }
+      .step { display: block !important; width: 100% !important; margin-bottom: 10px !important; }
+    }
+    .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(229, 9, 20, 0.24) !important; }
+  </style>
+</head>
+<body style="margin:0; padding:0; background:#111318; font-family:Arial, Helvetica, sans-serif; color:#f8fafc;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#111318; padding:34px 14px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" class="container" width="600" cellspacing="0" cellpadding="0" style="width:600px; max-width:600px;">
+          <tr>
+            <td style="padding:0 0 18px 0;">
+              <div style="font-size:24px; font-weight:800; color:#ffffff; letter-spacing:0;">CineLog</div>
+              <div style="font-size:13px; color:#98a2b3; margin-top:5px;">Your movie diary is waiting.</div>
+            </td>
+          </tr>
+          <tr>
+            <td class="panel" style="background:#ffffff; color:#172033; border-radius:8px; padding:36px; box-shadow:0 24px 70px rgba(0,0,0,0.34);">
+              <div style="display:inline-block; background:#fee2e2; color:#b91c1c; border-radius:999px; padding:8px 13px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px;">
+                Email verification
+              </div>
+              <h1 style="margin:20px 0 10px; font-size:30px; line-height:1.2; color:#111827; font-weight:800; letter-spacing:0;">
+                Confirm it is really you
+              </h1>
+              <p style="margin:0 0 26px; color:#475467; font-size:16px; line-height:1.6;">
+                Enter this one-time code in CineLog to finish creating your account.
+              </p>
+              <div class="hover-lift" style="background:#111827; border-radius:8px; padding:22px 18px; text-align:center; transition:all 180ms ease; box-shadow:0 12px 26px rgba(17,24,39,0.22);">
+                <div style="font-size:12px; color:#cbd5e1; text-transform:uppercase; font-weight:700; letter-spacing:1px; margin-bottom:10px;">
+                  Verification code
+                </div>
+                <div class="otp" style="font-size:42px; line-height:1; letter-spacing:0; color:#ffffff; font-weight:800; font-family:'Courier New', Courier, monospace;">
+                  {{OTP_CODE}}
+                </div>
+              </div>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top:26px;">
+                <tr>
+                  <td class="step" width="33.33%" style="padding-right:8px;">
+                    <div style="border:1px solid #e5e7eb; border-radius:8px; padding:14px;">
+                      <div style="font-size:20px; font-weight:800; color:#e50914;">1</div>
+                      <div style="font-size:13px; color:#475467; line-height:1.45;">Open the verification screen</div>
+                    </div>
+                  </td>
+                  <td class="step" width="33.33%" style="padding:0 4px;">
+                    <div style="border:1px solid #e5e7eb; border-radius:8px; padding:14px;">
+                      <div style="font-size:20px; font-weight:800; color:#e50914;">2</div>
+                      <div style="font-size:13px; color:#475467; line-height:1.45;">Type the code above</div>
+                    </div>
+                  </td>
+                  <td class="step" width="33.33%" style="padding-left:8px;">
+                    <div style="border:1px solid #e5e7eb; border-radius:8px; padding:14px;">
+                      <div style="font-size:20px; font-weight:800; color:#e50914;">3</div>
+                      <div style="font-size:13px; color:#475467; line-height:1.45;">Start logging films</div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:24px 0 0; color:#667085; font-size:14px; line-height:1.6;">
+                This code expires in <strong style="color:#111827;">10 minutes</strong>. If you did not request it, you can safely ignore this email.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:18px 4px 0; color:#98a2b3; font-size:12px; line-height:1.5; text-align:center;">
+              Sent by CineLog for account security.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
