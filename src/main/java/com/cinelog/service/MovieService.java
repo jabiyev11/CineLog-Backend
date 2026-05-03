@@ -100,9 +100,9 @@ public class MovieService {
     private void applyMovieRequest(Movie movie, MovieRequest request) {
         movie.setTitle(request.title().trim());
         movie.setReleaseYear(request.releaseYear());
-        movie.setDirectors(request.directors().stream().map(String::trim).toList());
-        movie.setCastMembers(request.cast().stream().map(String::trim).toList());
-        movie.setGenres(request.genres().stream().map(String::trim).toList());
+        movie.setDirectors(new ArrayList<>(request.directors().stream().map(String::trim).toList()));
+        movie.setCastMembers(new ArrayList<>(request.cast().stream().map(String::trim).toList()));
+        movie.setGenres(new ArrayList<>(request.genres().stream().map(String::trim).toList()));
         movie.setDurationMinutes(request.durationMinutes());
         movie.setCountry(request.country().trim());
         movie.setLanguage(request.language().trim());
@@ -113,7 +113,7 @@ public class MovieService {
                 : request.backdropImageUrl().trim());
         movie.setImageUrls(request.imageUrls() == null
                 ? new ArrayList<>()
-                : request.imageUrls().stream().map(String::trim).toList());
+                : new ArrayList<>(request.imageUrls().stream().map(String::trim).toList()));
     }
 
     private MovieSummaryResponse toMovieSummaryResponse(Movie movie) {
